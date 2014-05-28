@@ -1,0 +1,7 @@
+*-atum.map
+*.atum
+*.bin
+*.elf
+*.hex
+contiki-atum.a
+obj_atum
