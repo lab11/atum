@@ -126,7 +126,7 @@
 #define UART1_RTS_PORT           GPIO_C_NUM
 #define UART1_RTS_PIN            2
 /** @} */
- /*---------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------*/
 /**
  * \name FM25L04B configuration
  *
@@ -139,6 +139,18 @@
 #define FM25L04B_WP_N_PIN        2
 #define FM25L04B_CS_N_PORT_NUM   GPIO_D_NUM
 #define FM25L04B_CS_N_PIN        1
+/** @} */
+/*---------------------------------------------------------------------------*/
+/**
+ * \name RV-3049-C3 configuration
+ *
+ * These values configure which CC2538 pins to use for the RTC chip.
+ * @{
+ */
+#define RV3049_INT_N_PORT_NUM    GPIO_B_NUM
+#define RV3049_INT_N_PIN         2
+#define RV3049_CS_PORT_NUM       GPIO_B_NUM
+#define RV3049_CS_PIN            1
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**
