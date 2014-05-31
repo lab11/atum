@@ -6,7 +6,7 @@ Atum
 Atum is a ½ inch² drop-in sensor node module designed to enable rapid
 prototyping of wireless embedded devices. The core of Atum is a CC2538
 SoC with an Arm Cortex M3 and 802.15.4 radio. Atum also includes an
-antenna, 512 bytes of non-volatile FRAM memory, and an RTC.
+antenna, 512 bytes of non-volatile FRAM memory, an RTC, and a tri-color LED.
 
 Atum is designed to have two different usage patterns. First, three sides
 of the device have castellated headers allowing Atum to be directly
