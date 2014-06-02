@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+
+import datetime
+
+today   = datetime.datetime.utcnow()
+years   = today.year
+month   = today.month
+days    = today.day
+hours   = today.hour
+minutes = today.minute
+seconds = today.second
+weekday = today.isoweekday() + 1
+
+if weekday == 8:
+  weekday = 1
+
+timedefs = []
+timedefs.append('-DRTC_SECONDS={}'.format(seconds))
+timedefs.append('-DRTC_MINUTES={}'.format(minutes))
+timedefs.append('-DRTC_HOURS={}'.format(hours))
+timedefs.append('-DRTC_DAYS={}'.format(days))
+timedefs.append('-DRTC_MONTH={}'.format(month))
+timedefs.append('-DRTC_YEAR={}'.format(years))
+timedefs.append('-DRTC_WEEKDAY={}'.format(weekday))
+
+print(' '.join(timedefs))
