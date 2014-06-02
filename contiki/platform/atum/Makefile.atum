@@ -17,10 +17,18 @@ CONTIKI_SOURCEFILES += $(CONTIKI_TARGET_SOURCEFILES)
 
 CLEAN += *.atum
 
+PROJECT_OBJECTFILES += rtc_constants
+
 ### Unless the example dictates otherwise, build with code size optimisations
 ifndef SMALL
   SMALL = 1
 endif
+
+### special rule for RTC
+RTC_FLAGS = $(shell contiki-make-time))
+$(OBJECTDIR)/rv3049.o: rv3049.c | $(OBJECTDIR)
+	$(TRACE_CC)
+	$(Q)$(CC) $(CFLAGS) $(RTC_FLAGS) -c $< -o $@
 
 ### Define the CPU directory
 CONTIKI_CPU=$(CONTIKI)/cpu/cc2538

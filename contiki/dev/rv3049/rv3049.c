@@ -1,9 +1,20 @@
-
 #include "contiki.h"
 #include "rv3049.h"
 #include "spi-arch.h"
 #include "spi.h"
 #include "dev/ssi.h"
+
+/**
+* \file   Contiki driver for the SPI based Micro Crystal RV-3049 RTC.
+* \author Brad Campbell <bradjc@umich.edu>
+*/
+
+
+// Check that the application was compiled with the RTC constants for
+// initialization
+#ifndef RTC_SECONDS
+#error "To use the RTC you must compile with RTC_ initial values."
+#endif
 
 uint8_t rv3049_binary_to_bcd (uint8_t binary) {
   uint8_t out = 0;
@@ -33,6 +44,14 @@ rv3049_init()
 
   spi_cs_init(RV3049_CS_PORT_NUM, RV3049_CS_PIN);
   SPI_CS_CLR(RV3049_CS_PORT_NUM, RV3049_CS_PIN);
+
+  // Write the initial values
+  {
+    rv3049_time_t start_time = {RTC_SECONDS, RTC_MINUTES, RTC_HOURS,
+                                RTC_DAYS,    RTC_WEEKDAY, RTC_MONTH,
+                                RTC_YEAR};
+    rv3049_set_time(&start_time);
+  }
 }
 
 int

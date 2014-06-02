@@ -1,5 +1,5 @@
-#ifndef __RV3049_H__
-#define __RV3049_H__
+#ifndef RV3049_H_
+#define RV3049_H_
 
 // Addresses for the RTC registers
 #define RV3049_PAGE_ADDR_CONTROL     0x00
