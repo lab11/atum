@@ -1,5 +1,5 @@
 DEFINES+=PROJECT_CONF_H=\"project-conf.h\"
-CONTIKI_PROJECT = fram_test
+CONTIKI_PROJECT = rtc_test
 
 TARGETDIRS += ../../platform
 
