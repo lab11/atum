@@ -60,7 +60,7 @@ rv3049_read_time(rv3049_time_t* time)
   uint8_t buf[8];
   int i;
 
-  spi_set_mode(SSI_CR0_FRF_MOTOROLA, 0, 0, 8);
+  spi_set_mode(SSI_CR0_FRF_MOTOROLA, 0, SSI_CR0_SPH, 8);
 
   SPI_CS_SET(RV3049_CS_PORT_NUM, RV3049_CS_PIN);
 
@@ -68,6 +68,9 @@ rv3049_read_time(rv3049_time_t* time)
   SPI_WRITE(RV3049_SET_READ_BIT(RV3049_PAGE_ADDR_CLOCK));
 
   SPI_FLUSH();
+
+  // Read a null byte here. Not exactly sure why.
+  SPI_READ(buf[0]);
 
   // Then actually read the clock
   for (i=0; i<RV3049_READ_LEN_TIME; i++) {
@@ -101,6 +104,8 @@ rv3049_set_time(rv3049_time_t* time)
   buf[4] = time->weekday;
   buf[5] = time->month;
   buf[6] = rv3049_binary_to_bcd(time->year - 2000);
+
+  spi_set_mode(SSI_CR0_FRF_MOTOROLA, 0, SSI_CR0_SPH, 8);
 
   SPI_CS_SET(RV3049_CS_PORT_NUM, RV3049_CS_PIN);
 
