@@ -169,7 +169,7 @@
 <text x="33.655" y="60.325" size="1.016" layer="21" font="vector" ratio="12" rot="R270" align="top-center">3V3</text>
 <text x="5.08" y="43.18" size="1.016" layer="21" font="vector" ratio="12" rot="R90">Brad
 Campbell</text>
-<text x="6.985" y="43.18" size="0.889" layer="21" font="vector" ratio="12" rot="R90">2014/06/03</text>
+<text x="6.985" y="43.18" size="0.889" layer="21" font="vector" ratio="12" rot="R90">2014/06/04</text>
 <text x="5.08" y="15.875" size="1.524" layer="21" font="vector" ratio="15" rot="R90" align="center">ATUM
 Breakout</text>
 <wire x1="34.0614" y1="57.2516" x2="34.0614" y2="50.165" width="0.127" layer="21"/>
@@ -180,6 +180,11 @@ Breakout</text>
 <wire x1="52.324" y1="50.165" x2="52.324" y2="57.2262" width="0.127" layer="21"/>
 <text x="29.21" y="27.1018" size="1.27" layer="21" font="vector" ratio="12" rot="R180" align="bottom-center">JTAG</text>
 <text x="37.465" y="27.1018" size="1.27" layer="21" font="vector" ratio="12" rot="R180" align="bottom-center">BTLDR</text>
+<text x="9.525" y="15.875" size="1.27" layer="21" font="vector" ratio="12" rot="R90" align="center">A</text>
+<wire x1="8.255" y1="17.145" x2="10.795" y2="17.145" width="0.1524" layer="21"/>
+<wire x1="10.795" y1="17.145" x2="10.795" y2="14.605" width="0.1524" layer="21"/>
+<wire x1="10.795" y1="14.605" x2="8.255" y2="14.605" width="0.1524" layer="21"/>
+<wire x1="8.255" y1="14.605" x2="8.255" y2="17.145" width="0.1524" layer="21"/>
 </plain>
 <libraries>
 <library name="atum">
