@@ -10587,10 +10587,26 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="P+2" library="supply1" deviceset="VCC" device=""/>
-<part name="J7" library="pinhead" deviceset="PINHD-2X8" device=""/>
-<part name="J1" library="pinhead" deviceset="PINHD-2X8" device=""/>
-<part name="J3" library="pinhead" deviceset="PINHD-2X7" device=""/>
-<part name="J5" library="pinhead" deviceset="PINHD-2X7" device=""/>
+<part name="J7" library="pinhead" deviceset="PINHD-2X8" device="">
+<attribute name="DIGIKEY" value="609-3364-ND"/>
+<attribute name="MOUSER" value="649-68602-116HLF"/>
+<attribute name="NEWARK" value="20M2833"/>
+</part>
+<part name="J1" library="pinhead" deviceset="PINHD-2X8" device="">
+<attribute name="DIGIKEY" value="609-3364-ND"/>
+<attribute name="MOUSER" value="649-68602-116HLF"/>
+<attribute name="NEWARK" value="20M2833"/>
+</part>
+<part name="J3" library="pinhead" deviceset="PINHD-2X7" device="">
+<attribute name="DIGIKEY" value="609-3491-ND"/>
+<attribute name="MOUSER" value="649-67996-114HLF"/>
+<attribute name="NEWARK" value="30M1973"/>
+</part>
+<part name="J5" library="pinhead" deviceset="PINHD-2X7" device="">
+<attribute name="DIGIKEY" value="609-3491-ND"/>
+<attribute name="MOUSER" value="649-67996-114HLF"/>
+<attribute name="NEWARK" value="30M1973"/>
+</part>
 <part name="J2" library="headers" deviceset="SCREW-TERMINAL_8_0.100" device=""/>
 <part name="TP1" library="headers" deviceset="TEST_POINT_0.040IN" device=""/>
 <part name="TP2" library="headers" deviceset="TEST_POINT_0.040IN" device=""/>
@@ -10654,15 +10670,25 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <part name="R3" library="rcl" deviceset="R-US_" device="R0603" value="470"/>
 <part name="D2" library="SparkFun" deviceset="LED" device="0603" value="RED"/>
 <part name="D3" library="SparkFun" deviceset="LED" device="0603" value="GREEN"/>
-<part name="J15" library="connector" deviceset="MICRO_USB_B_HIROSE_ZX62R-B-5P" device=""/>
+<part name="J15" library="connector" deviceset="MICRO_USB_B_HIROSE_ZX62R-B-5P" device="">
+<attribute name="MOUSER" value="798-ZX62R-B-5P"/>
+<attribute name="NEWARK" value="69W0714"/>
+</part>
 <part name="D1" library="SparkFun" deviceset="LED" device="0603" value="BLUE"/>
 <part name="R1" library="rcl" deviceset="R-US_" device="R0603" value="470"/>
 <part name="GND9" library="supply1" deviceset="GND" device=""/>
-<part name="U2" library="ftdichip" deviceset="FT232R" device="Q"/>
+<part name="U2" library="ftdichip" deviceset="FT232R" device="Q">
+<attribute name="DIGIKEY" value="768-1008-1-ND"/>
+</part>
 <part name="P+3" library="supply1" deviceset="VCC" device=""/>
-<part name="S1" library="switches" deviceset="SSA22/DPDT" device=""/>
+<part name="S1" library="switches" deviceset="SSA22/DPDT" device="">
+<attribute name="DIGIKEY" value="450-1604-ND"/>
+<attribute name="MOUSER" value="506-SSA22"/>
+<attribute name="NEWARK" value="50F5561"/>
+</part>
 <part name="S2" library="berkeley-epic" deviceset="EVQP2" device="">
 <attribute name="DIGIKEY" value="P11084SCT-ND"/>
+<attribute name="MOUSER" value="667-EVQ-P2K02Q"/>
 </part>
 <part name="GND10" library="supply1" deviceset="GND" device=""/>
 <part name="J9" library="headers" deviceset="SCREW-TERMINAL_3_0.100" device=""/>
@@ -10701,18 +10727,30 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <instance part="J7" gate="A" x="20.32" y="132.08" smashed="yes" rot="R90">
 <attribute name="NAME" x="9.525" y="125.73" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="35.56" y="125.73" size="1.778" layer="96" rot="R90"/>
+<attribute name="DIGIKEY" x="20.32" y="132.08" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="MOUSER" x="20.32" y="132.08" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="NEWARK" x="20.32" y="132.08" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="J1" gate="A" x="20.32" y="38.1" smashed="yes" rot="R90">
 <attribute name="NAME" x="9.525" y="31.75" size="1.778" layer="95" rot="R90"/>
 <attribute name="VALUE" x="35.56" y="31.75" size="1.778" layer="96" rot="R90"/>
+<attribute name="MOUSER" x="20.32" y="38.1" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="DIGIKEY" x="20.32" y="38.1" size="1.778" layer="96" rot="R90" display="off"/>
+<attribute name="NEWARK" x="20.32" y="38.1" size="1.778" layer="96" rot="R90" display="off"/>
 </instance>
 <instance part="J3" gate="A" x="58.42" y="76.2" smashed="yes">
 <attribute name="NAME" x="52.07" y="86.995" size="1.778" layer="95"/>
 <attribute name="VALUE" x="52.07" y="63.5" size="1.778" layer="96"/>
+<attribute name="DIGIKEY" x="58.42" y="76.2" size="1.778" layer="96" display="off"/>
+<attribute name="MOUSER" x="58.42" y="76.2" size="1.778" layer="96" display="off"/>
+<attribute name="NEWARK" x="58.42" y="76.2" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="J5" gate="A" x="58.42" y="96.52" smashed="yes">
 <attribute name="NAME" x="52.07" y="107.315" size="1.778" layer="95"/>
 <attribute name="VALUE" x="52.07" y="83.82" size="1.778" layer="96"/>
+<attribute name="DIGIKEY" x="58.42" y="96.52" size="1.778" layer="96" display="off"/>
+<attribute name="MOUSER" x="58.42" y="96.52" size="1.778" layer="96" display="off"/>
+<attribute name="NEWARK" x="58.42" y="96.52" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="J2" gate="G$1" x="20.32" y="5.08" smashed="yes" rot="R90">
 <attribute name="NAME" x="11.43" y="4.064" size="1.778" layer="95"/>
@@ -10798,16 +10836,25 @@ Standard schematic elements and footprints for 5mm, 3mm, 1206, and 0603 sized LE
 <instance part="J15" gate="G$1" x="121.92" y="53.34" smashed="yes" rot="MR0">
 <attribute name="NAME" x="127" y="62.23" size="1.778" layer="95" rot="MR0"/>
 <attribute name="VALUE" x="116.078" y="60.452" size="1.778" layer="95" rot="MR270"/>
+<attribute name="MOUSER" x="121.92" y="53.34" size="1.778" layer="96" rot="MR0" display="off"/>
+<attribute name="NEWARK" x="121.92" y="53.34" size="1.778" layer="96" rot="MR0" display="off"/>
 </instance>
 <instance part="D1" gate="G$1" x="233.68" y="53.34" rot="R270"/>
 <instance part="R1" gate="G$1" x="220.98" y="53.34"/>
 <instance part="GND9" gate="1" x="215.9" y="27.94"/>
-<instance part="U2" gate="1" x="190.5" y="66.04"/>
+<instance part="U2" gate="1" x="190.5" y="66.04">
+<attribute name="DIGIKEY" x="190.5" y="66.04" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="P+3" gate="VCC" x="170.18" y="101.6"/>
-<instance part="S1" gate="G$1" x="193.04" y="129.54"/>
+<instance part="S1" gate="G$1" x="193.04" y="129.54">
+<attribute name="DIGIKEY" x="193.04" y="129.54" size="1.778" layer="96" display="off"/>
+<attribute name="MOUSER" x="193.04" y="129.54" size="1.778" layer="96" display="off"/>
+<attribute name="NEWARK" x="193.04" y="129.54" size="1.778" layer="96" display="off"/>
+</instance>
 <instance part="S1" gate="G$2" x="193.04" y="114.3"/>
 <instance part="S2" gate="G$1" x="144.78" y="121.92">
 <attribute name="DIGIKEY" x="144.78" y="121.92" size="1.27" layer="96" display="off"/>
+<attribute name="MOUSER" x="144.78" y="121.92" size="1.778" layer="96" display="off"/>
 </instance>
 <instance part="GND10" gate="1" x="134.62" y="114.3"/>
 <instance part="J9" gate="G$1" x="139.7" y="157.48" smashed="yes">
