@@ -1,45 +1,12 @@
-/*
- * Copyright (c) 2012, Texas Instruments Incorporated - http://www.ti.com/
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
- * 2. Redistributions in binary form must reproduce the above copyright
- *    notice, this list of conditions and the following disclaimer in the
- *    documentation and/or other materials provided with the distribution.
- *
- * 3. Neither the name of the copyright holder nor the names of its
- *    contributors may be used to endorse or promote products derived
- *    from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
- * ``AS IS'' AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
- * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
- * FOR A PARTICULAR PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL THE
- * COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
- * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
- * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
- * SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
- * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
- * STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
- * OF THE POSSIBILITY OF SUCH DAMAGE.
- */
 /**
  * \addtogroup platform
  * @{
  *
- * \defgroup cc2538 The cc2538 Development Kit platform
- *
- * The cc2538DK is the new platform by Texas Instruments, based on the
- * cc2530 SoC with an ARM Cortex-M3 core.
+ * \defgroup atum The atum sensor mote module.
  * @{
  *
  * \file
- *   Main module for the cc2538dk platform
+ *   Main module for the atum platform
  */
 /*---------------------------------------------------------------------------*/
 #include "contiki.h"
@@ -87,21 +54,34 @@
 #endif
 /*---------------------------------------------------------------------------*/
 static void
-set_rime_addr()
+set_rf_params(void)
 {
-  ieee_addr_cpy_to(&linkaddr_node_addr.u8[0], LINKADDR_SIZE);
+    uint16_t short_addr;
+    uint8_t ext_addr[8];
+
+    ieee_addr_cpy_to(ext_addr, 8);
+
+    short_addr = ext_addr[7];
+    short_addr |= ext_addr[6] << 8;
+
+    /* Populate linkaddr_node_addr. Maintain endianness */
+    memcpy(&linkaddr_node_addr, &ext_addr[8 - LINKADDR_SIZE], LINKADDR_SIZE);
 
 #if STARTUP_CONF_VERBOSE
-  {
-    int i;
-    printf("Rime configured with address ");
-    for(i = 0; i < LINKADDR_SIZE - 1; i++) {
-      printf("%02x:", linkaddr_node_addr.u8[i]);
+    {
+        int i;
+        printf("Rime configured with address ");
+        for(i = 0; i < LINKADDR_SIZE - 1; i++) {
+            printf("%02x:", linkaddr_node_addr.u8[i]);
+        }
+        printf("%02x\n", linkaddr_node_addr.u8[i]);
     }
-    printf("%02x\n", linkaddr_node_addr.u8[i]);
-  }
 #endif
-
+    
+    NETSTACK_RADIO.set_value(RADIO_PARAM_PAN_ID, IEEE802154_PANID);
+    NETSTACK_RADIO.set_value(RADIO_PARAM_16BIT_ADDR, short_addr);
+    NETSTACK_RADIO.set_value(RADIO_PARAM_CHANNEL, CC2538_RF_CHANNEL);
+    NETSTACK_RADIO.set_object(RADIO_PARAM_64BIT_ADDR, ext_addr, 8);
 }
 /*---------------------------------------------------------------------------*/
 /**
@@ -172,9 +152,8 @@ main(void)
   process_start(&etimer_process, NULL);
   ctimer_init();
 
-  set_rime_addr();
+  set_rf_params();
   netstack_init();
-  cc2538_rf_set_addr(IEEE802154_PANID);
 
 #if UIP_CONF_IPV6
   memcpy(&uip_lladdr.addr, &linkaddr_node_addr, sizeof(uip_lladdr.addr));
