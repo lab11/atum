@@ -103,6 +103,38 @@
 <pad name="30" x="-7.4789" y="9.1123" drill="0.45" diameter="0.8"/>
 <pad name="31" x="-8.4789" y="9.1123" drill="0.45" diameter="0.8"/>
 <pad name="32" x="-9.4789" y="9.1123" drill="0.45" diameter="0.8"/>
+<smd name="17B" x="0.1334" y="1.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="16B" x="0.1334" y="-1.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="18B" x="0.1334" y="2.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="19B" x="0.1334" y="3.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="20B" x="0.1334" y="4.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="21B" x="0.1334" y="5.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="22B" x="0.1334" y="6.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="23B" x="0.1334" y="7.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="15B" x="0.1334" y="-2.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="14B" x="0.1334" y="-3.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="13B" x="0.1334" y="-4.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="12B" x="0.1334" y="-5.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="11B" x="0.1334" y="-6.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="10B" x="0.1334" y="-7.5" dx="1.2" dy="0.754" layer="16"/>
+<smd name="24B" x="-1.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="9B" x="-1.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="25B" x="-2.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="26B" x="-3.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="27B" x="-4.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="28B" x="-5.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="29B" x="-6.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="30B" x="-7.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="31B" x="-8.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="32B" x="-9.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="8B" x="-2.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="7B" x="-3.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="6B" x="-4.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="5B" x="-5.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="4B" x="-6.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="3B" x="-7.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="2B" x="-8.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<smd name="1B" x="-9.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
 </package>
 <package name="ATUM">
 <smd name="16" x="0.3" y="-1.5" dx="1.5" dy="0.754" layer="1"/>
@@ -266,38 +298,38 @@
 <devices>
 <device name="" package="ATUM-HEADER">
 <connects>
-<connect gate="G$1" pin="1" pad="1"/>
-<connect gate="G$1" pin="10" pad="10"/>
-<connect gate="G$1" pin="11" pad="11"/>
-<connect gate="G$1" pin="12" pad="12"/>
-<connect gate="G$1" pin="13" pad="13"/>
-<connect gate="G$1" pin="14" pad="14"/>
-<connect gate="G$1" pin="15" pad="15"/>
-<connect gate="G$1" pin="16" pad="16"/>
-<connect gate="G$1" pin="17" pad="17"/>
-<connect gate="G$1" pin="18" pad="18"/>
-<connect gate="G$1" pin="19" pad="19"/>
-<connect gate="G$1" pin="2" pad="2"/>
-<connect gate="G$1" pin="20" pad="20"/>
-<connect gate="G$1" pin="21" pad="21"/>
-<connect gate="G$1" pin="22" pad="22"/>
-<connect gate="G$1" pin="23" pad="23"/>
-<connect gate="G$1" pin="24" pad="24"/>
-<connect gate="G$1" pin="25" pad="25"/>
-<connect gate="G$1" pin="26" pad="26"/>
-<connect gate="G$1" pin="27" pad="27"/>
-<connect gate="G$1" pin="28" pad="28"/>
-<connect gate="G$1" pin="29" pad="29"/>
-<connect gate="G$1" pin="3" pad="3"/>
-<connect gate="G$1" pin="30" pad="30"/>
-<connect gate="G$1" pin="31" pad="31"/>
-<connect gate="G$1" pin="32" pad="32"/>
-<connect gate="G$1" pin="4" pad="4"/>
-<connect gate="G$1" pin="5" pad="5"/>
-<connect gate="G$1" pin="6" pad="6"/>
-<connect gate="G$1" pin="7" pad="7"/>
-<connect gate="G$1" pin="8" pad="8"/>
-<connect gate="G$1" pin="9" pad="9"/>
+<connect gate="G$1" pin="1" pad="1 1B"/>
+<connect gate="G$1" pin="10" pad="10 10B"/>
+<connect gate="G$1" pin="11" pad="11 11B"/>
+<connect gate="G$1" pin="12" pad="12 12B"/>
+<connect gate="G$1" pin="13" pad="13 13B"/>
+<connect gate="G$1" pin="14" pad="14 14B"/>
+<connect gate="G$1" pin="15" pad="15 15B"/>
+<connect gate="G$1" pin="16" pad="16 16B"/>
+<connect gate="G$1" pin="17" pad="17 17B"/>
+<connect gate="G$1" pin="18" pad="18 18B"/>
+<connect gate="G$1" pin="19" pad="19 19B"/>
+<connect gate="G$1" pin="2" pad="2 2B"/>
+<connect gate="G$1" pin="20" pad="20 20B"/>
+<connect gate="G$1" pin="21" pad="21 21B"/>
+<connect gate="G$1" pin="22" pad="22 22B"/>
+<connect gate="G$1" pin="23" pad="23 23B"/>
+<connect gate="G$1" pin="24" pad="24 24B"/>
+<connect gate="G$1" pin="25" pad="25 25B"/>
+<connect gate="G$1" pin="26" pad="26 26B"/>
+<connect gate="G$1" pin="27" pad="27 27B"/>
+<connect gate="G$1" pin="28" pad="28 28B"/>
+<connect gate="G$1" pin="29" pad="29 29B"/>
+<connect gate="G$1" pin="3" pad="3 3B"/>
+<connect gate="G$1" pin="30" pad="30 30B"/>
+<connect gate="G$1" pin="31" pad="31 31B"/>
+<connect gate="G$1" pin="32" pad="32 32B"/>
+<connect gate="G$1" pin="4" pad="4 4B"/>
+<connect gate="G$1" pin="5" pad="5 5B"/>
+<connect gate="G$1" pin="6" pad="6 6B"/>
+<connect gate="G$1" pin="7" pad="7 7B"/>
+<connect gate="G$1" pin="8" pad="8 8B"/>
+<connect gate="G$1" pin="9" pad="9 9B"/>
 </connects>
 <technologies>
 <technology name=""/>
