@@ -18,12 +18,12 @@ for a link to the best compiler to use for the CC2538
 
 2. Clone the main contiki repository
 
-    git clone https://github.com/contiki-os/contiki.git
+        git clone https://github.com/contiki-os/contiki.git
 
 3. Add the `/tools` directory in this folder to your path. This folder contains
 a script for initializing the RTC with the current time. Something like:
 
-    export PATH=$PATH:$HOME/git/atum/contiki/tools
+        export PATH=$PATH:$HOME/git/atum/contiki/tools
 
 4. Make sure the applications know where the main Contiki repository is.
 Edit `apps/blink/Makefile` and make sure that `CONTIKI = ../../../../contiki`
