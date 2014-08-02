@@ -6392,70 +6392,70 @@ Source: AVX .. aphvc.pdf</description>
 <library name="atum">
 <packages>
 <package name="ATUM-HEADER">
-<pad name="16" x="0.1334" y="-1.5" drill="0.45" diameter="0.8"/>
-<pad name="15" x="0.1334" y="-2.5" drill="0.45" diameter="0.8"/>
-<pad name="14" x="0.1334" y="-3.5" drill="0.45" diameter="0.8"/>
-<pad name="13" x="0.1334" y="-4.5" drill="0.45" diameter="0.8"/>
-<pad name="12" x="0.1334" y="-5.5" drill="0.45" diameter="0.8"/>
-<pad name="11" x="0.1334" y="-6.5" drill="0.45" diameter="0.8"/>
-<pad name="10" x="0.1334" y="-7.5" drill="0.45" diameter="0.8"/>
-<pad name="9" x="-1.4789" y="-9.1123" drill="0.45" diameter="0.8"/>
-<pad name="8" x="-2.4789" y="-9.1123" drill="0.45" diameter="0.8"/>
-<pad name="7" x="-3.4789" y="-9.1123" drill="0.45" diameter="0.8"/>
-<pad name="6" x="-4.4789" y="-9.1123" drill="0.45" diameter="0.8"/>
-<pad name="5" x="-5.4789" y="-9.1123" drill="0.45" diameter="0.8"/>
-<pad name="4" x="-6.4789" y="-9.1123" drill="0.45" diameter="0.8"/>
-<pad name="3" x="-7.4789" y="-9.1123" drill="0.45" diameter="0.8"/>
-<pad name="2" x="-8.4789" y="-9.1123" drill="0.45" diameter="0.8"/>
-<pad name="1" x="-9.4789" y="-9.1123" drill="0.45" diameter="0.8"/>
-<pad name="17" x="0.1334" y="1.5" drill="0.45" diameter="0.8"/>
-<pad name="18" x="0.1334" y="2.5" drill="0.45" diameter="0.8"/>
-<pad name="19" x="0.1334" y="3.5" drill="0.45" diameter="0.8"/>
-<pad name="20" x="0.1334" y="4.5" drill="0.45" diameter="0.8"/>
-<pad name="21" x="0.1334" y="5.5" drill="0.45" diameter="0.8"/>
-<pad name="22" x="0.1334" y="6.5" drill="0.45" diameter="0.8"/>
-<pad name="23" x="0.1334" y="7.5" drill="0.45" diameter="0.8"/>
-<pad name="24" x="-1.4789" y="9.1123" drill="0.45" diameter="0.8"/>
-<pad name="25" x="-2.4789" y="9.1123" drill="0.45" diameter="0.8"/>
-<pad name="26" x="-3.4789" y="9.1123" drill="0.45" diameter="0.8"/>
-<pad name="27" x="-4.4789" y="9.1123" drill="0.45" diameter="0.8"/>
-<pad name="28" x="-5.4789" y="9.1123" drill="0.45" diameter="0.8"/>
-<pad name="29" x="-6.4789" y="9.1123" drill="0.45" diameter="0.8"/>
-<pad name="30" x="-7.4789" y="9.1123" drill="0.45" diameter="0.8"/>
-<pad name="31" x="-8.4789" y="9.1123" drill="0.45" diameter="0.8"/>
-<pad name="32" x="-9.4789" y="9.1123" drill="0.45" diameter="0.8"/>
-<smd name="17B" x="0.1334" y="1.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="16B" x="0.1334" y="-1.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="18B" x="0.1334" y="2.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="19B" x="0.1334" y="3.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="20B" x="0.1334" y="4.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="21B" x="0.1334" y="5.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="22B" x="0.1334" y="6.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="23B" x="0.1334" y="7.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="15B" x="0.1334" y="-2.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="14B" x="0.1334" y="-3.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="13B" x="0.1334" y="-4.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="12B" x="0.1334" y="-5.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="11B" x="0.1334" y="-6.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="10B" x="0.1334" y="-7.5" dx="1.2" dy="0.754" layer="16"/>
-<smd name="24B" x="-1.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="9B" x="-1.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="25B" x="-2.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="26B" x="-3.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="27B" x="-4.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="28B" x="-5.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="29B" x="-6.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="30B" x="-7.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="31B" x="-8.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="32B" x="-9.4789" y="9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="8B" x="-2.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="7B" x="-3.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="6B" x="-4.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="5B" x="-5.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="4B" x="-6.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="3B" x="-7.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="2B" x="-8.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
-<smd name="1B" x="-9.4789" y="-9.1123" dx="1.2" dy="0.754" layer="16" rot="R270"/>
+<pad name="16" x="0" y="-1.5" drill="0.45" diameter="0.754"/>
+<pad name="15" x="0" y="-2.5" drill="0.45" diameter="0.754"/>
+<pad name="14" x="0" y="-3.5" drill="0.45" diameter="0.754"/>
+<pad name="13" x="0" y="-4.5" drill="0.45" diameter="0.754"/>
+<pad name="12" x="0" y="-5.5" drill="0.45" diameter="0.754"/>
+<pad name="11" x="0" y="-6.5" drill="0.45" diameter="0.754"/>
+<pad name="10" x="0" y="-7.5" drill="0.45" diameter="0.754"/>
+<pad name="9" x="-1.4789" y="-8.9789" drill="0.45" diameter="0.754"/>
+<pad name="8" x="-2.4789" y="-8.9789" drill="0.45" diameter="0.754"/>
+<pad name="7" x="-3.4789" y="-8.9789" drill="0.45" diameter="0.754"/>
+<pad name="6" x="-4.4789" y="-8.9789" drill="0.45" diameter="0.754"/>
+<pad name="5" x="-5.4789" y="-8.9789" drill="0.45" diameter="0.754"/>
+<pad name="4" x="-6.4789" y="-8.9789" drill="0.45" diameter="0.754"/>
+<pad name="3" x="-7.4789" y="-8.9789" drill="0.45" diameter="0.754"/>
+<pad name="2" x="-8.4789" y="-8.9789" drill="0.45" diameter="0.754"/>
+<pad name="1" x="-9.4789" y="-8.9789" drill="0.45" diameter="0.754"/>
+<pad name="17" x="0" y="1.5" drill="0.45" diameter="0.754"/>
+<pad name="18" x="0" y="2.5" drill="0.45" diameter="0.754"/>
+<pad name="19" x="0" y="3.5" drill="0.45" diameter="0.754"/>
+<pad name="20" x="0" y="4.5" drill="0.45" diameter="0.754"/>
+<pad name="21" x="0" y="5.5" drill="0.45" diameter="0.754"/>
+<pad name="22" x="0" y="6.5" drill="0.45" diameter="0.754"/>
+<pad name="23" x="0" y="7.5" drill="0.45" diameter="0.754"/>
+<pad name="24" x="-1.4789" y="8.9789" drill="0.45" diameter="0.754"/>
+<pad name="25" x="-2.4789" y="8.9789" drill="0.45" diameter="0.754"/>
+<pad name="26" x="-3.4789" y="8.9789" drill="0.45" diameter="0.754"/>
+<pad name="27" x="-4.4789" y="8.9789" drill="0.45" diameter="0.754"/>
+<pad name="28" x="-5.4789" y="8.9789" drill="0.45" diameter="0.754"/>
+<pad name="29" x="-6.4789" y="8.9789" drill="0.45" diameter="0.754"/>
+<pad name="30" x="-7.4789" y="8.9789" drill="0.45" diameter="0.754"/>
+<pad name="31" x="-8.4789" y="8.9789" drill="0.45" diameter="0.754"/>
+<pad name="32" x="-9.4789" y="8.9789" drill="0.45" diameter="0.754"/>
+<smd name="17B" x="0" y="1.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="16B" x="0" y="-1.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="18B" x="0" y="2.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="19B" x="0" y="3.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="20B" x="0" y="4.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="21B" x="0" y="5.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="22B" x="0" y="6.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="23B" x="0" y="7.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="15B" x="0" y="-2.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="14B" x="0" y="-3.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="13B" x="0" y="-4.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="12B" x="0" y="-5.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="11B" x="0" y="-6.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="10B" x="0" y="-7.5" dx="1.2" dy="0.754" layer="16" cream="no"/>
+<smd name="24B" x="-1.4789" y="8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="9B" x="-1.4789" y="-8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="25B" x="-2.4789" y="8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="26B" x="-3.4789" y="8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="27B" x="-4.4789" y="8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="28B" x="-5.4789" y="8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="29B" x="-6.4789" y="8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="30B" x="-7.4789" y="8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="31B" x="-8.4789" y="8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="32B" x="-9.4789" y="8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="8B" x="-2.4789" y="-8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="7B" x="-3.4789" y="-8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="6B" x="-4.4789" y="-8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="5B" x="-5.4789" y="-8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="4B" x="-6.4789" y="-8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="3B" x="-7.4789" y="-8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="2B" x="-8.4789" y="-8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
+<smd name="1B" x="-9.4789" y="-8.9789" dx="1.2" dy="0.754" layer="16" rot="R270" cream="no"/>
 </package>
 </packages>
 <symbols>
