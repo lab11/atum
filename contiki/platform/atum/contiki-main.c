@@ -77,7 +77,7 @@ set_rf_params(void)
         printf("%02x\n", linkaddr_node_addr.u8[i]);
     }
 #endif
-    
+
     NETSTACK_RADIO.set_value(RADIO_PARAM_PAN_ID, IEEE802154_PANID);
     NETSTACK_RADIO.set_value(RADIO_PARAM_16BIT_ADDR, short_addr);
     NETSTACK_RADIO.set_value(RADIO_PARAM_CHANNEL, CC2538_RF_CHANNEL);
@@ -155,11 +155,11 @@ main(void)
   set_rf_params();
   netstack_init();
 
-#if UIP_CONF_IPV6
+#if NETSTACK_CONF_WITH_IPV6
   memcpy(&uip_lladdr.addr, &linkaddr_node_addr, sizeof(uip_lladdr.addr));
   queuebuf_init();
   process_start(&tcpip_process, NULL);
-#endif /* UIP_CONF_IPV6 */
+#endif /* NETSTACK_CONF_WITH_IPV6 */
 
   //process_start(&sensors_process, NULL);
 
