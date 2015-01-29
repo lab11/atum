@@ -8,7 +8,7 @@
 #define FM25L04B_READ_COMMAND          0x03
 #define FM25L04B_WRITE_COMMAND         0x02
 
-/* /brief adds the 9th bit of the address to a command */
+/* \brief adds the 9th bit of the address to a command */
 #define FM25L04B_ADD_ADDRESS_BIT(address, command) \
   (((address & 0x100) >> 5) | command)
 
