@@ -14,7 +14,8 @@ and the toolchain.
 
 1. Install the compilers. See
 [this](https://github.com/contiki-os/contiki/tree/master/platform/cc2538dk#install-a-toolchain)
-for a link to the best compiler to use for the CC2538
+for a link to the best compiler to use for the CC2538.
+Note: You MUST install from the launchpad website, NOT mentor.
 
 2. Clone the main contiki repository
 
@@ -52,7 +53,10 @@ Assuming you are using the serial bootloader (pins GND, VCC, !RESET,
 BOOTLOADER_CTRL, BOOTLOADER_TX, and BOOTLOADER_RX) you can use the wonderful
 [BSL script from JelmerT](https://github.com/JelmerT/cc2538-bsl) by:
 
-    make blink.upload
+    make install
+
+In the case of a permission error for /dev/ttyUSB0, add yourself to the dialout
+group.
 
 
 Errors
