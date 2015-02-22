@@ -126,6 +126,13 @@
 #define UART1_RTS_PORT           GPIO_C_NUM
 #define UART1_RTS_PIN            2
 /** @} */
+
+
+#define DW1000_CS_N_PORT_NUM GPIO_C_NUM
+#define DW1000_CS_N_PIN      0
+
+
+
 /*---------------------------------------------------------------------------*/
 /**
  * \name FM25L04B configuration

@@ -29,6 +29,13 @@ $(OBJECTDIR)/rv3049.o: rv3049.c FORCE | $(OBJECTDIR)
 	$(TRACE_CC)
 	$(Q)$(CC) $(CFLAGS) $(RTC_FLAGS) -c $< -o $@
 
+### Check if we need decawave support
+ifdef USE_DECAWAVE
+CONTIKI_TARGET_DIRS += ../../lib/decawave
+CONTIKI_TARGET_DIRS += ../../dev/dw1000
+CONTIKI_TARGET_SOURCEFILES += deca_device.c deca_params_init.c dw1000.c
+endif
+
 ### Define the CPU directory
 CONTIKI_CPU=$(CONTIKI)/cpu/cc2538
 include $(CONTIKI_CPU)/Makefile.cc2538
