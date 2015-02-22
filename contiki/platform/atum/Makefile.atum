@@ -24,7 +24,7 @@ endif
 
 ### special rule for RTC
 FORCE:
-RTC_FLAGS = $(shell contiki-make-time)
+RTC_FLAGS = $(shell ../../tools/contiki-make-time)
 $(OBJECTDIR)/rv3049.o: rv3049.c FORCE | $(OBJECTDIR)
 	$(TRACE_CC)
 	$(Q)$(CC) $(CFLAGS) $(RTC_FLAGS) -c $< -o $@
