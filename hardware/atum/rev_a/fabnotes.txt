@@ -1,0 +1,17 @@
+PCB NAME : ATUM
+REVISION: A
+DATE: 2015-02-23
+
+PCB DESCRIPTION:4 LAYER PCB 1.0 MM
+      Copper        1    1.4 mil (1 oz)
+      Dielectric  1-2    5.7 mil (e.g. 2x Prepreg 1080)
+      Copper        2    1.4 mil (1 oz)
+      Dielectric  2-3   22.0 mil
+      Copper        3    1.4 mil (1 oz)
+      Dielectric  3-4    5.7 mil (e.g. 2x Prepreg 1080)
+      Copper        4    1.4 mil (1 oz)
+  DE104iML or equivalent substrate (Resin contents around 45%, which gives Er=4.42@2.4GHz, TanD=0.016)
+  Dimensions in mil (0.001 inch)
+  DOUBLE SIDE SOLDER MASK,
+  DOUBLE SIDE SILKSCREEN,
+  6 MIL MIN TRACE WIDTH AND 6 MIL MIN ISOLATION.

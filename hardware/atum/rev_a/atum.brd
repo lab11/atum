@@ -58,7 +58,7 @@
 <layer number="48" name="Document" color="7" fill="1" visible="no" active="yes"/>
 <layer number="49" name="Reference" color="7" fill="1" visible="no" active="yes"/>
 <layer number="50" name="dxf" color="7" fill="1" visible="no" active="no"/>
-<layer number="51" name="tDocu" color="14" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="14" fill="1" visible="no" active="yes"/>
 <layer number="52" name="bDocu" color="14" fill="1" visible="no" active="yes"/>
 <layer number="53" name="tGND_GNDA" color="7" fill="9" visible="no" active="no"/>
 <layer number="54" name="bGND_GNDA" color="1" fill="9" visible="no" active="no"/>
@@ -78,7 +78,7 @@
 <layer number="104" name="Name" color="16" fill="1" visible="no" active="yes"/>
 <layer number="105" name="tPlate" color="7" fill="1" visible="no" active="yes"/>
 <layer number="106" name="bPlate" color="7" fill="1" visible="no" active="yes"/>
-<layer number="107" name="Crop" color="7" fill="1" visible="no" active="yes"/>
+<layer number="107" name="Crop" color="13" fill="1" visible="yes" active="yes"/>
 <layer number="108" name="fp8" color="7" fill="1" visible="no" active="yes"/>
 <layer number="109" name="fp9" color="7" fill="1" visible="no" active="yes"/>
 <layer number="110" name="fp0" color="7" fill="1" visible="no" active="yes"/>
@@ -137,7 +137,31 @@
 <text x="4.318" y="2.794" size="1.016" layer="21" font="vector" ratio="14" rot="R90" align="center">ATUM</text>
 <text x="3.2258" y="12.573" size="0.762" layer="21" font="vector" ratio="14" rot="R90" align="center">A</text>
 <text x="1.524" y="4.572" size="0.762" layer="22" font="vector" ratio="12" rot="SMR270" align="center">Brad Campbell</text>
-<text x="2.794" y="4.572" size="0.762" layer="22" font="vector" ratio="12" rot="SMR270" align="center">2014/08/04</text>
+<text x="2.794" y="4.572" size="0.762" layer="22" font="vector" ratio="12" rot="SMR270" align="center">2015/02/23</text>
+<wire x1="0.635" y1="0" x2="17.3228" y2="0" width="0" layer="107"/>
+<wire x1="17.9578" y1="0.635" x2="17.9578" y2="17.3228" width="0" layer="107"/>
+<wire x1="17.3228" y1="17.9578" x2="0.635" y2="17.9578" width="0" layer="107"/>
+<wire x1="0" y1="17.3228" x2="0" y2="0.635" width="0" layer="107"/>
+<wire x1="17.3228" y1="0" x2="17.9578" y2="-0.635" width="0" layer="107" curve="-90"/>
+<wire x1="18.5928" y1="0" x2="17.9578" y2="0.635" width="0" layer="107" curve="-90"/>
+<wire x1="0" y1="-0.635" x2="0.635" y2="0" width="0" layer="107" curve="-90"/>
+<wire x1="0" y1="0.635" x2="-0.635" y2="0" width="0" layer="107" curve="-90"/>
+<wire x1="17.9578" y1="18.5928" x2="17.3228" y2="17.9578" width="0" layer="107" curve="-90"/>
+<wire x1="17.9578" y1="17.3228" x2="18.5928" y2="17.9578" width="0" layer="107" curve="-90"/>
+<wire x1="0" y1="17.3228" x2="-0.635" y2="17.9578" width="0" layer="107" curve="90"/>
+<wire x1="0.635" y1="17.9578" x2="0" y2="18.5928" width="0" layer="107" curve="-90"/>
+<wire x1="0.635" y1="-1.27" x2="0" y2="-0.635" width="0" layer="107" curve="-90"/>
+<wire x1="17.9578" y1="-0.635" x2="17.3228" y2="-1.27" width="0" layer="107" curve="-90"/>
+<wire x1="19.2278" y1="0.635" x2="18.5928" y2="0" width="0" layer="107" curve="-90"/>
+<wire x1="18.5928" y1="17.9578" x2="19.2278" y2="17.3228" width="0" layer="107" curve="-90"/>
+<wire x1="17.3228" y1="19.2278" x2="17.9578" y2="18.5928" width="0" layer="107" curve="-90"/>
+<wire x1="0" y1="18.5928" x2="0.635" y2="19.2278" width="0" layer="107" curve="-90"/>
+<wire x1="-0.635" y1="17.9578" x2="-1.27" y2="17.3228" width="0" layer="107" curve="90"/>
+<wire x1="-0.635" y1="0" x2="-1.27" y2="0.635" width="0" layer="107" curve="-90"/>
+<wire x1="-1.27" y1="17.3228" x2="-1.27" y2="0.635" width="0" layer="107"/>
+<wire x1="0.635" y1="-1.27" x2="17.3228" y2="-1.27" width="0" layer="107"/>
+<wire x1="19.2278" y1="0.635" x2="19.2278" y2="17.3228" width="0" layer="107"/>
+<wire x1="17.3228" y1="19.2278" x2="0.635" y2="19.2278" width="0" layer="107"/>
 </plain>
 <libraries>
 <library name="logos">
@@ -1616,8 +1640,8 @@ This Sunstone Circuits 4 Layer .DRU has been set to cover our minimum requiremen
 &lt;p&gt;v1.2Mod12/06/07~Distance C/D to 20mils.&lt;p&gt;v1.3Mod12/12/07~Supply/Annulus Value to 12.5mils&lt;p&gt;1/15/08 SSC-EAGLE-4Lyr_v1.0.0.3~For Release&lt;p&gt;10/03/08 Description Edit&lt;p&gt;
 &lt;i&gt;Attention: Upon running the design check and making modifications, please remember to save any changes before closing the application and sending in your board file to Sunstone Circuits for conversion.&lt;i&gt;</description>
 <param name="layerSetup" value="(1+2*15+16)"/>
-<param name="mtCopper" value="0.034290625mm 0.034290625mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.034290625mm 0.034290625mm"/>
-<param name="mtIsolate" value="0.23621875mm 39mil 12mil 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.24891875mm"/>
+<param name="mtCopper" value="0.035559375mm 0.035559375mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.0356mm 0.035559375mm 0.035559375mm"/>
+<param name="mtIsolate" value="0.14478125mm 22mil 12mil 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.2007mm 0.1499mm 0.14478125mm"/>
 <param name="mdWireWire" value="6mil"/>
 <param name="mdWirePad" value="6mil"/>
 <param name="mdWireVia" value="6mil"/>
