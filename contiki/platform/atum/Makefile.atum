@@ -46,9 +46,15 @@ MODULES += core/net core/net/mac \
 
 BSL = $(CONTIKI)/tools/cc2538-bsl/cc2538-bsl.py
 
+ifdef PORT
+  PORT_FLAG = -p $(PORT)
+else
+  PORT_FLAG =
+endif
+
 install: all
 ifeq ($(wildcard $(BSL)), )
 	@echo "ERROR: Could not find the cc2538-bsl script. Did you run 'git submodule update --init' ?"
 else
-	python2 $(BSL) -b 115200 -e -w -v $(CONTIKI_PROJECT).bin
+	python2 $(BSL) $(PORT_FLAG) -b 115200 -e -w -v $(CONTIKI_PROJECT).bin
 endif
