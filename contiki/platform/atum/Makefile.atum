@@ -33,7 +33,9 @@ $(OBJECTDIR)/rv3049.o: rv3049.c FORCE | $(OBJECTDIR)
 ifdef USE_DECAWAVE
 CONTIKI_TARGET_DIRS += ../../lib/decawave
 CONTIKI_TARGET_DIRS += ../../dev/dw1000
-CONTIKI_TARGET_SOURCEFILES += deca_device.c deca_params_init.c dw1000.c
+CONTIKI_TARGET_SOURCEFILES += dw1000.c
+CONTIKI_TARGET_SOURCEFILES += deca_device.c deca_params_init.c deca_range_tables.c
+TARGET_LIBFILES += -lm
 endif
 
 ### Define the CPU directory

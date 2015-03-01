@@ -128,8 +128,12 @@
 /** @} */
 
 
-#define DW1000_CS_N_PORT_NUM GPIO_C_NUM
-#define DW1000_CS_N_PIN      0
+#define DW1000_CS_N_PORT_NUM   GPIO_C_NUM
+#define DW1000_CS_N_PIN        0
+#define DW1000_IRQ_PORT_NUM    GPIO_C_NUM
+#define DW1000_IRQ_PIN         1
+#define DW1000_RST_N_PORT_NUM  GPIO_B_NUM
+#define DW1000_RST_N_PIN       3
 
 
 

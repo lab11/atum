@@ -7,5 +7,8 @@ USE_DECAWAVE = 1
 
 all: $(CONTIKI_PROJECT)
 
+#LDFLAGS += --specs=nano.specs -u _printf_float
+LDFLAGS += --specs=nano.specs
+
 CONTIKI = ../../../../contiki
 include $(CONTIKI)/Makefile.include
