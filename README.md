@@ -10,7 +10,7 @@ antenna, 512 bytes of non-volatile FRAM memory, an RTC, and a tri-color LED.
 
 Atum is designed to have two different usage patterns. First, three sides
 of the device have castellated headers allowing Atum to be directly
-soldered onto a carrier PCB. Atum handles all of the computation and 
+soldered onto a carrier PCB. Atum handles all of the computation and
 communication while the carrier board supplies power and attaches
 sensors or other peripherals. In the second option, Atum can function
 as a complete sensor node. On the bottom are pads for a 3.3 V regulator
@@ -45,4 +45,13 @@ Usage
 The [Contiki](https://github.com/contiki-os/contiki) operating system
 supports the CC2538 and this repository contains a Contiki platform
 for Atum. The Contiki platform provides drivers for the peripherals
-on Atum and their wiring to the CC2538.
+on Atum and their wiring to the CC2538. See `CONTIKI.md` for more info.
+
+PCB
+---
+
+Atum is currently pannelized 40 to a panel. They are designed to be 1mm thick
+with castellations on the edge. See `hardware/atum` for board files and
+gerbers.
+
+
