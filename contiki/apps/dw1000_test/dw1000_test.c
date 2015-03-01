@@ -60,7 +60,7 @@ uint64_t global_anchor_final_rx_time = 0;
 
 
 
-struct ieee154_msg {
+struct ieee154_msg  {
     uint8_t frameCtrl[2];                             //  frame control bytes 00-01
     uint8_t seqNum;                                   //  sequence_number 02
     uint8_t panID[2];                                 //  PAN ID 03-04
@@ -70,7 +70,7 @@ struct ieee154_msg {
     uint32_t responseMinusPoll; // time differences
     uint32_t finalMinusResponse;
     uint8_t fcs[2] ;                                  //  we allow space for the CRC as it is logically part of the message. However ScenSor TX calculates and adds these bytes.
-};
+} __attribute__ ((__packed__));
 
 struct ieee154_msg msg;
 
@@ -203,8 +203,8 @@ void app_dw1000_rxcallback (const dwt_callback_data_t *rxd) {
 
                     uint32_t finalMinusResponse =
                         (uint32_t) global_tx_antenna_delay +
-                        ((uint32_t) global_pkt_delay_upper32 >> 8) -
-                        ((uint32_t) global_tag_anchor_resp_rx_time & 0x1FF);
+                        ((uint32_t) global_pkt_delay_upper32 << 8) -
+                        (((uint32_t) global_tag_anchor_resp_rx_time) & 0x1FF);
 
                     msg.messageType = MSG_TYPE_TAG_FINAL;
                     msg.responseMinusPoll = responseMinusPoll;
@@ -304,8 +304,21 @@ void app_dw1000_rxcallback (const dwt_callback_data_t *rxd) {
 
                 uint32_t time_of_flight = pollResponseRTD + responseFinalRTD;
 
-                printf("tof: %u\n", time_of_flight);
-                printf("test: %f\n", 3.5);
+                printf("GOT RANGE:\n");
+                printf("atxt:    %u\n", aTxT);
+                printf("RMP:     %u\n", msg_ptr->responseMinusPoll);
+                printf("tRxT:    %u\n", tRxT);
+                printf("FMR:     %u\n", msg_ptr->finalMinusResponse);
+                printf("pollRTD: %u\n", pollResponseRTD);
+                printf("respRTD: %u\n", responseFinalRTD);
+                printf("tof:     %u\n", time_of_flight);
+
+
+
+
+
+                // printf("tof: %u\n", time_of_flight);
+                // printf("test: %f\n", 3.5);
 
                 {
                     // calculate the actual distance
@@ -321,7 +334,7 @@ void app_dw1000_rxcallback (const dwt_callback_data_t *rxd) {
                         tofi *= -1; // make it positive
                     }
 
-                    printf("tofi: %i\n", tofi);
+                    printf("tofi: %10i\n", tofi);
 
                     // Convert to seconds and divide by four because
                     // there were four packets.
@@ -333,7 +346,7 @@ void app_dw1000_rxcallback (const dwt_callback_data_t *rxd) {
                         distance - dwt_getrangebias(2, (float) distance, DWT_PRF_64M);
 
 
-                    printf("GOT RANGE: %f\n", distance);
+                    // printf("GOT RANGE: %f\n", distance);
                 }
 
                 // Get ready to receive next POLL
@@ -448,6 +461,7 @@ int app_dw1000_init () {
             dwt_settxantennadelay(antenna_delay);
         }
         global_tx_antenna_delay = antenna_delay;
+        printf("tx antenna delay: %u\n", antenna_delay);
     }
 
     // instance_config(&ranging_config);
