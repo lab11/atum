@@ -107,12 +107,16 @@ int writetospi(uint16_t headerLength,
   SPI_CS_CLR(DW1000_CS_N_PORT_NUM, DW1000_CS_N_PIN);
 
   for (i=0; i<headerLength; i++) {
-    SPI_WRITE(headerBuffer[i]);
+    // SPI_WRITE(headerBuffer[i]);
+    SPI_WRITE_FAST(headerBuffer[i]);
   }
 
   for (i=0; i<bodylength; i++) {
-    SPI_WRITE(bodyBuffer[i]);
+    // SPI_WRITE(bodyBuffer[i]);
+    SPI_WRITE_FAST(bodyBuffer[i]);
   }
+
+  SPI_WAITFOREOTx();
 
   SPI_CS_SET(DW1000_CS_N_PORT_NUM, DW1000_CS_N_PIN);
 

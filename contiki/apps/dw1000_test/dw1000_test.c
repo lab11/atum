@@ -4,6 +4,7 @@
 #include "dev/leds.h"
 #include "deca_device_api.h"
 #include "dw1000.h"
+#include "dev/ssi.h"
 
 #include <stdint.h>
 #include <string.h>
@@ -43,7 +44,11 @@ static struct etimer periodic_timer;
 
 #define DW1000_PANID 0xD100
 
+// #define NODE_DELAY_US 1000
+// #define NODE_DELAY_US 500
+// #define NODE_DELAY_US 3000
 #define NODE_DELAY_US 5000
+// #define NODE_DELAY_US 4000
 #define DELAY_MASK 0x00FFFFFFFE00
 #define SPEED_OF_LIGHT 299702547.0
 
@@ -222,6 +227,7 @@ void app_dw1000_rxcallback (const dwt_callback_data_t *rxd) {
         // a FINAL from a tag.
 
         if (rxd->event == DWT_SIG_RX_OKAY) {
+            uint8_t packet_type_byte;
             uint8_t recv_pkt[128];
             struct ieee154_msg* msg_ptr;
             uint64_t timestamp;
@@ -241,11 +247,13 @@ void app_dw1000_rxcallback (const dwt_callback_data_t *rxd) {
                         (((uint64_t) txTimeStamp[4]) << 32);
 
             // Get the packet
-            dwt_readrxdata(recv_pkt, rxd->datalength, 0);
-            msg_ptr = (struct ieee154_msg*) recv_pkt;
+            dwt_readrxdata(&packet_type_byte, 1, 21);
+            // dwt_readrxdata(recv_pkt, rxd->datalength, 0);
+            // msg_ptr = (struct ieee154_msg*) recv_pkt;
 
 
-            if (msg_ptr->messageType == MSG_TYPE_TAG_POLL) {
+            // if (msg_ptr->messageType == MSG_TYPE_TAG_POLL) {
+            if (packet_type_byte == MSG_TYPE_TAG_POLL) {
                 // Got POLL
 
                 global_anchor_poll_rx_time = timestamp;
@@ -271,9 +279,9 @@ void app_dw1000_rxcallback (const dwt_callback_data_t *rxd) {
                 // Put at beginning of TX fifo
                 dwt_writetxfctrl(tx_frame_length, 0);
 
-                msg.seqNum++;
-                msg.messageType = MSG_TYPE_ANC_RESP;
-                dwt_writetxdata(tx_frame_length, (uint8_t*) &msg, 0);
+                // msg.seqNum++;
+                // msg.messageType = MSG_TYPE_ANC_RESP;
+                // dwt_writetxdata(tx_frame_length, (uint8_t*) &msg, 0);
 
                 // Start delayed TX
                 err = dwt_starttx(DWT_START_TX_DELAYED | DWT_RESPONSE_EXPECTED);
@@ -285,8 +293,13 @@ void app_dw1000_rxcallback (const dwt_callback_data_t *rxd) {
                 dwt_setrxaftertxdelay(1000);
 
 
-            } else if (msg_ptr->messageType == MSG_TYPE_TAG_FINAL) {
+            // } else if (msg_ptr->messageType == MSG_TYPE_TAG_FINAL) {
+            } else if (packet_type_byte == MSG_TYPE_TAG_FINAL) {
                 // Got FINAL
+
+                // Read the whole packet
+                dwt_readrxdata(recv_pkt, rxd->datalength, 0);
+                msg_ptr = (struct ieee154_msg*) recv_pkt;
 
                 global_anchor_final_rx_time = timestamp;
 
@@ -415,6 +428,7 @@ int app_dw1000_init () {
     ranging_config.chan           = 2;
     ranging_config.prf            = DWT_PRF_64M;
     ranging_config.txPreambLength = DWT_PLEN_1024;
+    // ranging_config.txPreambLength = DWT_PLEN_256;
     ranging_config.rxPAC          = DWT_PAC32;
     ranging_config.txCode         = 9;  // preamble code
     ranging_config.rxCode         = 9;  // preamble code
@@ -526,6 +540,11 @@ int app_dw1000_init () {
         // Disable RX timeout by setting to 0
         dwt_setrxtimeout(0);
 
+        // Try pre-populating this
+        msg.seqNum++;
+        msg.messageType = MSG_TYPE_ANC_RESP;
+        dwt_writetxdata(24, (uint8_t*) &msg, 0);
+
         // Go for receiving
         dwt_rxenable(0);
 
@@ -610,6 +629,11 @@ PROCESS_THREAD(dw1000_test, ev, data) {
         printf("Error initializing the application.\n");
             leds_on(LEDS_RED);
     }
+
+    // Make it fast
+    REG(SSI0_BASE + SSI_CR1) = 0;
+    REG(SSI0_BASE + SSI_CPSR) = 2;
+    REG(SSI0_BASE + SSI_CR1) |= SSI_CR1_SSE;
 
     if (DW1000_ROLE_TYPE == ANCHOR) {
         printf("Awaiting POLL\n");
