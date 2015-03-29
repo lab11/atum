@@ -1,4 +1,4 @@
-# cc2538dk platform makefile
+# atum platform makefile
 
 ifndef CONTIKI
   $(error CONTIKI not defined! You must specify where CONTIKI resides!)
@@ -23,20 +23,12 @@ ifndef SMALL
 endif
 
 ### special rule for RTC
+SELF_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 FORCE:
-RTC_FLAGS = $(shell ../../tools/contiki-make-time)
+RTC_FLAGS = $(shell $(SELF_DIR)../../tools/contiki-make-time)
 $(OBJECTDIR)/rv3049.o: rv3049.c FORCE | $(OBJECTDIR)
 	$(TRACE_CC)
 	$(Q)$(CC) $(CFLAGS) $(RTC_FLAGS) -c $< -o $@
-
-### Check if we need decawave support
-ifdef USE_DECAWAVE
-CONTIKI_TARGET_DIRS += ../../lib/decawave
-CONTIKI_TARGET_DIRS += ../../dev/dw1000
-CONTIKI_TARGET_SOURCEFILES += dw1000.c
-CONTIKI_TARGET_SOURCEFILES += deca_device.c deca_params_init.c deca_range_tables.c
-TARGET_LIBFILES += -lm
-endif
 
 ### Define the CPU directory
 CONTIKI_CPU=$(CONTIKI)/cpu/cc2538
@@ -48,15 +40,18 @@ MODULES += core/net core/net/mac \
 
 BSL = $(CONTIKI)/tools/cc2538-bsl/cc2538-bsl.py
 
+ifdef ID
+  BSL_FLAGS += -i $(ID)
+endif
+
 ifdef PORT
-  PORT_FLAG = -p $(PORT)
-else
-  PORT_FLAG =
+  BSL_FLAGS += -p $(PORT)
 endif
 
 install: all
 ifeq ($(wildcard $(BSL)), )
 	@echo "ERROR: Could not find the cc2538-bsl script. Did you run 'git submodule update --init' ?"
 else
-	python2 $(BSL) $(PORT_FLAG) -b 115200 -e -w -v $(CONTIKI_PROJECT).bin
+	python2 $(BSL) -b 115200 -e -w -v $(BSL_FLAGS) $(CONTIKI_PROJECT).bin
 endif
+
