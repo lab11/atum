@@ -5,3 +5,9 @@
 *.hex
 contiki-atum.a
 obj_atum
+*.cc2538dk
+obj_cc2538dk
+*-torch.map
+*.torch
+contiki-torch.a
+obj_torch
