@@ -4,20 +4,15 @@ ifndef CONTIKI
   $(error CONTIKI not defined! You must specify where CONTIKI resides!)
 endif
 
-CONTIKI_TARGET_DIRS = . dev ../../dev/fm25l04b ../../dev/rv3049
+### Include the files from the base platform (cc2538)
+CONTIKI_TARGET_DIRS =  $(CONTIKI)/platform/cc2538
 
-CONTIKI_TARGET_SOURCEFILES += leds.c leds-arch.c
-CONTIKI_TARGET_SOURCEFILES += contiki-main.c
+CONTIKI_TARGET_DIRS += . dev ../../dev/fm25l04b ../../dev/rv3049
+
+CONTIKI_TARGET_SOURCEFILES += leds-arch.c
 CONTIKI_TARGET_SOURCEFILES += fm25l04b.c rv3049.c
 
-CONTIKI_SOURCEFILES += $(CONTIKI_TARGET_SOURCEFILES)
-
 CLEAN += *.atum
-
-### Unless the example dictates otherwise, build with code size optimisations
-ifndef SMALL
-  SMALL = 1
-endif
 
 ### special rule for RTC
 SELF_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
@@ -27,15 +22,10 @@ $(OBJECTDIR)/rv3049.o: rv3049.c FORCE | $(OBJECTDIR)
 	$(TRACE_CC)
 	$(Q)$(CC) $(CFLAGS) $(RTC_FLAGS) -c $< -o $@
 
-### Define the CPU directory
-CONTIKI_CPU=$(CONTIKI)/cpu/cc2538
-include $(CONTIKI_CPU)/Makefile.cc2538
 
-MODULES += core/net core/net/mac \
-           core/net/mac/contikimac \
-           core/net/llsec
+### Include the base CC2538 platform makefile
+include $(CONTIKI)/platform/cc2538/Makefile.cc2538
 
-BSL = $(CONTIKI)/tools/cc2538-bsl/cc2538-bsl.py
 
 ifdef ID
   BSL_FLAGS += -i $(ID)
@@ -49,6 +39,5 @@ install: all
 ifeq ($(wildcard $(BSL)), )
 	@echo "ERROR: Could not find the cc2538-bsl script. Did you run 'git submodule update --init' ?"
 else
-	python2 $(BSL) -b 115200 -e -w -v $(BSL_FLAGS) $(CONTIKI_PROJECT).bin
+	python2 $(BSL) -b 500000 -e -w -v $(BSL_FLAGS) $(CONTIKI_PROJECT).bin
 endif
-
