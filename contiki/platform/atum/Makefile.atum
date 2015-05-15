@@ -49,6 +49,6 @@ install: all
 ifeq ($(wildcard $(BSL)), )
 	@echo "ERROR: Could not find the cc2538-bsl script. Did you run 'git submodule update --init' ?"
 else
-	python2 $(BSL) -b 115200 -e -w -v $(BSL_FLAGS) $(CONTIKI_PROJECT).bin
+	python2 $(BSL) -b 500000 -e -w -v $(BSL_FLAGS) $(CONTIKI_PROJECT).bin
 endif
 
