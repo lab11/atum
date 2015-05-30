@@ -10,9 +10,6 @@ CONTIKI_TARGET_SOURCEFILES += leds.c leds-arch.c
 CONTIKI_TARGET_SOURCEFILES += contiki-main.c
 CONTIKI_TARGET_SOURCEFILES += fm25l04b.c rv3049.c
 
-TARGET_START_SOURCEFILES += startup-gcc.c
-TARGET_STARTFILES = ${addprefix $(OBJECTDIR)/,${call oname, $(TARGET_START_SOURCEFILES)}}
-
 CONTIKI_SOURCEFILES += $(CONTIKI_TARGET_SOURCEFILES)
 
 CLEAN += *.atum
@@ -52,6 +49,6 @@ install: all
 ifeq ($(wildcard $(BSL)), )
 	@echo "ERROR: Could not find the cc2538-bsl script. Did you run 'git submodule update --init' ?"
 else
-	python2 $(BSL) -b 115200 -e -w -v $(BSL_FLAGS) $(CONTIKI_PROJECT).bin
+	python2 $(BSL) -b 500000 -e -w -v $(BSL_FLAGS) $(CONTIKI_PROJECT).bin
 endif
 

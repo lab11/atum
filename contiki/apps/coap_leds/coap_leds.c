@@ -8,7 +8,6 @@
 #include "dev/watchdog.h"
 #include "dev/serial-line.h"
 #include "dev/sys-ctrl.h"
-#include "dev/pwm.h"
 #include "net/rime/broadcast.h"
 #include "net/ip/uip.h"
 #include "net/ip/uip-udp-packet.h"
