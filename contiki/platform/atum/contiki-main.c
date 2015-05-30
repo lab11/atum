@@ -103,7 +103,9 @@ main(void)
 
   process_init();
 
+#if WATCHDOG_ATUM_ENABLE
   watchdog_init();
+#endif
   //button_sensor_init();
   spi_init();
   fm25l04b_init();
@@ -168,15 +170,17 @@ main(void)
 
   autostart_start(autostart_processes);
 
-#if WATCHDOG_CONF_ENABLE
+#if WATCHDOG_ATUM_ENABLE
   watchdog_start();
 #endif
 
   while(1) {
     uint8_t r;
     do {
+#if WATCHDOG_ATUM_ENABLE
       /* Reset watchdog and handle polls and events */
       watchdog_periodic();
+#endif
 
       r = process_run();
     } while(r > 0);
