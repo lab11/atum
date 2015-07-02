@@ -34,8 +34,8 @@ fm25l04b_init()
   GPIO_SET_PIN(GPIO_PORT_TO_BASE(FM25L04B_WP_N_PORT_NUM),
                GPIO_PIN_MASK(FM25L04B_WP_N_PIN));
 
-  spi_cs_init(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
-  SPI_CS_SET(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
+  spix_cs_init(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
+  SPIX_CS_SET(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
 }
 
 /**
@@ -53,9 +53,9 @@ fm25l04b_read(uint16_t address, uint16_t len, uint8_t *buf)
   uint16_t i;
   uint16_t current_address = address;
 
-  spi_set_mode(SSI_CR0_FRF_MOTOROLA, SSI_CR0_SPO, SSI_CR0_SPH, 8);
+  spix_set_mode(FM25L04B_SPI_BUS, SSI_CR0_FRF_MOTOROLA, SSI_CR0_SPO, SSI_CR0_SPH, 8);
 
-  SPI_CS_CLR(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
+  SPIX_CS_CLR(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
 
   /* Send the READ command and the address to the FRAM */
   SPI_WRITE(FM25L04B_ADD_ADDRESS_BIT(current_address, FM25L04B_READ_COMMAND));
@@ -67,7 +67,7 @@ fm25l04b_read(uint16_t address, uint16_t len, uint8_t *buf)
     SPI_READ(buf[i]);
   }
 
-  SPI_CS_SET(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
+  SPIX_CS_SET(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
 
   return 0;
 }
@@ -86,16 +86,16 @@ fm25l04b_write(uint16_t address, uint16_t len, uint8_t *buf)
 {
   uint16_t i;
 
-  spi_set_mode(SSI_CR0_FRF_MOTOROLA, SSI_CR0_SPO, SSI_CR0_SPH, 8);
+  spix_set_mode(FM25L04B_SPI_BUS, SSI_CR0_FRF_MOTOROLA, SSI_CR0_SPO, SSI_CR0_SPH, 8);
 
 
-  SPI_CS_CLR(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
+  SPIX_CS_CLR(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
 
   /* Send the WRITE ENABLE command to allow writing to the FRAM */
   SPI_WRITE(FM25L04B_WRITE_ENABLE_COMMAND);
 
-  SPI_CS_SET(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
-  SPI_CS_CLR(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
+  SPIX_CS_SET(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
+  SPIX_CS_CLR(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
 
   /* Send the WRITE command and the address to the FRAM */
   SPI_WRITE(FM25L04B_ADD_ADDRESS_BIT(address, FM25L04B_WRITE_COMMAND));
@@ -106,7 +106,7 @@ fm25l04b_write(uint16_t address, uint16_t len, uint8_t *buf)
     SPI_WRITE(buf[i]);
   }
 
-  SPI_CS_SET(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
+  SPIX_CS_SET(FM25L04B_CS_N_PORT_NUM, FM25L04B_CS_N_PIN);
 
   return 0;
 }

@@ -144,6 +144,7 @@
  * These values configure which CC2538 pins to use for the FRAM chip.
  * @{
  */
+#define FM25L04B_SPI_BUS         0
 #define FM25L04B_HOLD_N_PORT_NUM GPIO_D_NUM
 #define FM25L04B_HOLD_N_PIN      0
 #define FM25L04B_WP_N_PORT_NUM   GPIO_D_NUM
@@ -184,12 +185,18 @@
  * These values configure which CC2538 pins to use for the SPI lines.
  * @{
  */
-#define SPI_CLK_PORT             GPIO_C_NUM
-#define SPI_CLK_PIN              6
-#define SPI_MOSI_PORT            GPIO_C_NUM
-#define SPI_MOSI_PIN             7
-#define SPI_MISO_PORT            GPIO_B_NUM
-#define SPI_MISO_PIN             0
+// #define SPI0_CLK_PORT             GPIO_C_NUM
+// #define SPI0_CLK_PIN              6
+// #define SPI0_MOSI_PORT            GPIO_C_NUM
+// #define SPI0_MOSI_PIN             7
+// #define SPI0_MISO_PORT            GPIO_B_NUM
+// #define SPI0_MISO_PIN             0
+#define SPI0_CLK_PORT             GPIO_C_NUM
+#define SPI0_CLK_PIN              6
+#define SPI0_TX_PORT            GPIO_C_NUM
+#define SPI0_TX_PIN             7
+#define SPI0_RX_PORT            GPIO_B_NUM
+#define SPI0_RX_PIN             0
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**

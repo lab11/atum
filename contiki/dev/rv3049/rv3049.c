@@ -42,7 +42,7 @@ rv3049_init()
   GPIO_SET_INPUT(GPIO_PORT_TO_BASE(RV3049_INT_N_PORT_NUM),
                  GPIO_PIN_MASK(RV3049_INT_N_PIN));
 
-  spi_cs_init(RV3049_CS_PORT_NUM, RV3049_CS_PIN);
+  spix_cs_init(RV3049_CS_PORT_NUM, RV3049_CS_PIN);
   SPI_CS_CLR(RV3049_CS_PORT_NUM, RV3049_CS_PIN);
 
   // Write the initial values
@@ -60,7 +60,7 @@ rv3049_read_time(rv3049_time_t* time)
   uint8_t buf[8];
   int i;
 
-  spi_set_mode(SSI_CR0_FRF_MOTOROLA, 0, SSI_CR0_SPH, 8);
+  spix_set_mode(SPI_CONF_DEFAULT_INSTANCE, SSI_CR0_FRF_MOTOROLA, 0, SSI_CR0_SPH, 8);
 
   SPI_CS_SET(RV3049_CS_PORT_NUM, RV3049_CS_PIN);
 
@@ -105,7 +105,7 @@ rv3049_set_time(rv3049_time_t* time)
   buf[5] = time->month;
   buf[6] = rv3049_binary_to_bcd(time->year - 2000);
 
-  spi_set_mode(SSI_CR0_FRF_MOTOROLA, 0, SSI_CR0_SPH, 8);
+  spix_set_mode(SPI_CONF_DEFAULT_INSTANCE, SSI_CR0_FRF_MOTOROLA, 0, SSI_CR0_SPH, 8);
 
   SPI_CS_SET(RV3049_CS_PORT_NUM, RV3049_CS_PIN);
 

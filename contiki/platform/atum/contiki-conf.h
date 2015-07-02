@@ -141,6 +141,10 @@ typedef uint32_t rtimer_clock_t;
  *
  * @{
  */
+#ifndef SPI_CONF_DEFAULT_INSTANCE
+#define SPI_CONF_DEFAULT_INSTANCE   0
+#endif
+
 #ifndef UART_CONF_ENABLE
 #define UART_CONF_ENABLE            1 /**< Enable/Disable UART I/O */
 #endif
