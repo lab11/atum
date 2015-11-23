@@ -18,19 +18,6 @@ static struct etimer periodic_timer_rtc;
 rv3049_time_t rtctime;
 uint8_t last_seconds = 0;
 
-void leds_off_true(uint8_t leds) {
-	leds_off(leds);
-	if (leds_get() & leds) {
-		leds_invert(leds);
-	}
-}
-
-void leds_on_true(uint8_t leds) {
-	leds_on(leds);
-	if (!(leds_get() & leds)) {
-		leds_invert(leds);
-	}
-}
 
 PROCESS_THREAD(rtc_test, ev, data) {
 
@@ -49,10 +36,10 @@ PROCESS_THREAD(rtc_test, ev, data) {
 
 			if (rtctime.seconds - 3 >  last_seconds) {
 				leds_toggle(LEDS_BLUE);
-				leds_off_true(LEDS_RED);
+				leds_off(LEDS_RED);
 			} else {
 				leds_toggle(LEDS_RED);
-				leds_off_true(LEDS_BLUE);
+				leds_off(LEDS_BLUE);
 			}
 			last_seconds = rtctime.seconds;
 			etimer_restart(&periodic_timer_rtc);
