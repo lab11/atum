@@ -34,10 +34,10 @@ typedef uint32_t uip_stats_t;
 
 /*
  * rtimer.h typedefs rtimer_clock_t as unsigned short. We need to define
- * RTIMER_CLOCK_LT to override this
+ * RTIMER_CLOCK_DIFF to override this
  */
 typedef uint32_t rtimer_clock_t;
-#define RTIMER_CLOCK_LT(a,b)     ((int32_t)((a)-(b)) < 0)
+#define RTIMER_CLOCK_DIFF(a,b)     ((int32_t)((a)-(b)))
 
 /* Enable external 32 kHz crystal */
 #define SYS_CTRL_CONF_OSC32K_USE_XTAL 1
@@ -68,13 +68,13 @@ typedef uint32_t rtimer_clock_t;
  *
  * @{
  */
-#ifndef FLASH_CONF_ORIGIN
-#define FLASH_CONF_ORIGIN  0x00200000
-#endif
+// #ifndef FLASH_CONF_ORIGIN
+// #define FLASH_CONF_ORIGIN  0x00200000
+// #endif
 
-#ifndef FLASH_CONF_SIZE
-#define FLASH_CONF_SIZE    0x00080000 /* 512 KiB */
-#endif
+// #ifndef FLASH_CONF_SIZE
+// #define FLASH_CONF_SIZE    0x00080000 /* 512 KiB */
+// #endif
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**
@@ -147,10 +147,6 @@ typedef uint32_t rtimer_clock_t;
 
 #ifndef UART_CONF_ENABLE
 #define UART_CONF_ENABLE            1 /**< Enable/Disable UART I/O */
-#endif
-
-#ifndef UART_CONF_BAUD_RATE
-#define UART_CONF_BAUD_RATE    115200 /**< Default baud rate */
 #endif
 
 #ifndef UART0_CONF_BAUD_RATE
@@ -332,8 +328,12 @@ typedef uint32_t rtimer_clock_t;
 #endif
 
 #ifndef NETSTACK_CONF_FRAMER
+#if NETSTACK_CONF_WITH_IPV6
 #define NETSTACK_CONF_FRAMER  framer_802154
-#endif
+#else /* NETSTACK_CONF_WITH_IPV6 */
+#define NETSTACK_CONF_FRAMER  contikimac_framer
+#endif /* NETSTACK_CONF_WITH_IPV6 */
+#endif /* NETSTACK_CONF_FRAMER */
 
 #define NETSTACK_CONF_RADIO   cc2538_rf_driver
 /** @} */
@@ -457,14 +457,10 @@ typedef uint32_t rtimer_clock_t;
 #define UIP_CONF_ROUTER                      1
 #endif
 
-#ifndef UIP_CONF_IPV6_RPL
-#define UIP_CONF_IPV6_RPL                    1
-#endif
-
 #define UIP_CONF_ND6_SEND_RA                 0
 #define UIP_CONF_IP_FORWARD                  0
 #define RPL_CONF_STATS                       0
-#define RPL_CONF_MAX_DAG_ENTRIES             1
+
 #ifndef RPL_CONF_OF
 #define RPL_CONF_OF rpl_mrhof
 #endif
@@ -503,8 +499,8 @@ typedef uint32_t rtimer_clock_t;
 #define SICSLOWPAN_CONF_MAX_ADDR_CONTEXTS    1
 #ifndef SICSLOWPAN_CONF_ADDR_CONTEXT_0
 #define SICSLOWPAN_CONF_ADDR_CONTEXT_0 { \
-  addr_contexts[0].prefix[0] = 0xaa; \
-  addr_contexts[0].prefix[1] = 0xaa; \
+  addr_contexts[0].prefix[0] = UIP_DS6_DEFAULT_PREFIX_0; \
+  addr_contexts[0].prefix[1] = UIP_DS6_DEFAULT_PREFIX_1; \
 }
 #endif
 
@@ -531,7 +527,24 @@ typedef uint32_t rtimer_clock_t;
 #endif /* NETSTACK_CONF_WITH_IPV6 */
 /** @} */
 /*---------------------------------------------------------------------------*/
+/**
+ * \name Security
+ *
+ * @{
+ */
+#ifndef CRYPTO_CONF_INIT
+#define CRYPTO_CONF_INIT        1 /**< Whether to init cryptoprocessor */
+#endif
 
+#ifndef AES_128_CONF
+#define AES_128_CONF            cc2538_aes_128_driver /**< AES-128 driver */
+#endif
+
+#ifndef CCM_STAR_CONF
+#define CCM_STAR_CONF           cc2538_ccm_star_driver /**< AES-CCM* driver */
+#endif
+/** @} */
+/*---------------------------------------------------------------------------*/
 #endif /* CONTIKI_CONF_H_ */
 
 /** @} */
