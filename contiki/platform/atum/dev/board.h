@@ -200,6 +200,18 @@
 /** @} */
 /*---------------------------------------------------------------------------*/
 /**
+ * \name I2C configuration
+ *
+ * These values configure which CC2538 pins to use for the I2C lines.
+ * @{
+ */
+#define I2C_SDA_PORT            GPIO_C_NUM
+#define I2C_SDA_PIN             5
+#define I2C_SCL_PORT            GPIO_C_NUM
+#define I2C_SCL_PIN             4
+/** @} */
+/*---------------------------------------------------------------------------*/
+/**
  * \name Device string used on startup
  * @{
  */
